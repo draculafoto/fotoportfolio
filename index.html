@@ -1,3 +1,9 @@
+Here is the complete index.html updated with a clean, responsive navigation bar featuring 4 customizable options.
+
+To make each page work, duplicate your index.html file in GitHub (or on your computer) and name the copies to match the menu link filenames listed in the code below.
+Updated index.html
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +33,7 @@
       margin: 0 auto;
     }
 
-    /* Header styling */
+    /* Header & Navigation Styling */
     header {
       text-align: center;
       margin-bottom: 3rem;
@@ -44,6 +50,39 @@
     header p {
       color: var(--subtext-color);
       font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Top Navigation Menu */
+    nav {
+      margin-top: 1.5rem;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 1rem 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--subtext-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--text-color);
+      border-bottom: 2px solid var(--text-color);
     }
 
     /* Uniform Square Grid */
@@ -56,7 +95,6 @@
     .gallery-item {
       position: relative;
       width: 100%;
-      /* Forces exact 1:1 square ratio for every container */
       aspect-ratio: 1 / 1;
       overflow: hidden;
       border-radius: 6px;
@@ -67,7 +105,6 @@
     .gallery-item img {
       width: 100%;
       height: 100%;
-      /* Fills the square without distorting proportions */
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease, opacity 0.4s ease;
@@ -147,10 +184,20 @@
   <header>
     <h1>Your Name</h1>
     <p>Photography & Visual Stories</p>
+
+    <!-- Top Navigation Menu -->
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">All Work</a></li>
+        <li><a href="portraits.html">Portraits</a></li>
+        <li><a href="landscapes.html">Landscapes</a></li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main class="gallery">
-    <!-- Replace the src links below with your own images (e.g., images/photo1.jpg) -->
+    <!-- Replace src links below with your images -->
     <div class="gallery-item">
       <img src="https://picsum.photos/600/900?random=1" alt="Portfolio Image 1" loading="lazy">
     </div>
@@ -187,7 +234,6 @@
     const lightboxClose = document.getElementById('lightboxClose');
     const galleryItems = document.querySelectorAll('.gallery-item img');
 
-    // Open lightbox when clicking any gallery item
     galleryItems.forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
@@ -196,19 +242,16 @@
       });
     });
 
-    // Close lightbox when clicking the close button
     lightboxClose.addEventListener('click', () => {
       lightbox.classList.remove('active');
     });
 
-    // Close lightbox when clicking outside the image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('active');
       }
     });
 
-    // Close lightbox on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         lightbox.classList.remove('active');
