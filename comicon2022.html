@@ -163,6 +163,39 @@
       color: var(--subtext-color);
     }
 
+    /* Custom Zoom Utilities - This is for each image to have a pecial zoom if needed 01 */
+.gallery-item.zoom-sm img {
+  transform: scale(1.15); /* Slight extra zoom */
+}
+
+.gallery-item.zoom-md img {
+  transform: scale(1.3);  /* Medium extra zoom */
+}
+
+.gallery-item.zoom-lg img {
+  transform: scale(1.5);  /* Deep zoom */
+}
+
+/* Adjust hover effect so zoomed images still animate on hover */
+.gallery-item.zoom-sm:hover img {
+  transform: scale(1.2);
+  filter: grayscale(100%);
+}
+
+.gallery-item.zoom-md:hover img {
+  transform: scale(1.35);
+  filter: grayscale(100%);
+}
+
+.gallery-item.zoom-lg:hover img {
+  transform: scale(1.55);
+  filter: grayscale(100%);
+}
+
+/* /Custom Zoom Utilities - This is for each image to have a pecial zoom if needed 01 */
+
+
+    
     /* Footer */
     footer {
       text-align: center;
@@ -208,7 +241,8 @@
      <div class="gallery-item">
       <img src="images2022/comicon2023 (34).png" alt="Portfolio Image 1" loading="lazy">
     </div>
-    <div class="gallery-item">
+     <!-- this images uses large zoom by adding zoom-lg -->
+    <div class="gallery-item zoom-lg">
       <img src="images2022/comicon2023 (35).png" alt="Portfolio Image 2" loading="lazy">
     </div>
     <div class="gallery-item">
